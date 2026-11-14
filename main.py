@@ -106,7 +106,7 @@ async def work(interaction: discord.Interaction):
     import time
     row = get_user(interaction.user.id)
     now = int(time.time())
-    remaining = 3600 - (now - row["last_work"])
+    remaining = 600 - (now - row["last_work"])
     if remaining > 0:
         await interaction.response.send_message(
             f"⏳ Kamu masih lelah. Coba lagi dalam **{cooldown_text(remaining)}**.",
