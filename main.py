@@ -94,7 +94,7 @@ async def daily(interaction: discord.Interaction):
             ephemeral=True
         )
         return
-    reward = random.randint(250, 500)
+    reward = random.randint(15000)
     con = db()
     con.execute("UPDATE users SET balance=balance+?, last_daily=? WHERE user_id=?",
                 (reward, now, interaction.user.id))
@@ -114,11 +114,11 @@ async def work(interaction: discord.Interaction):
         )
         return
     jobs = [
-        ("developer", 100, 250),
-        ("designer", 120, 280),
-        ("builder", 80, 220),
-        ("merchant", 90, 240),
-        ("moderator", 110, 260),
+        ("developer", 35000, 68900),
+        ("designer", 13800, 27000),
+        ("builder", 9450, 16800),
+        ("merchant", 5390, 24600),
+        ("moderator", 11000, 26000),
     ]
     job, lo, hi = random.choice(jobs)
     reward = random.randint(lo, hi)
